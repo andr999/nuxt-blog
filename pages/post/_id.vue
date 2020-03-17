@@ -56,7 +56,10 @@ export default {
   },
     head() {
       return {
-          title: `${this.post.title} | ${process.env.appName}`
+          title: `${this.post.title} | ${process.env.appName}`,
+          meta: [
+              {hid: `hpost-${this.post._id}`, name: 'description', content: this.post.title}
+          ]
       }
     },
     async asyncData({store, params}) {
